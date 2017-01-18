@@ -1,4 +1,5 @@
 library(reshape2)
+
 # 0.download data, if not there
 
 if (!file.exists("UCI HAR Dataset")) { 
@@ -37,4 +38,4 @@ data$subject <- as.factor(data$subject)
 
 tidydata <- melt(data,id = c("subject","activity"))
 tidydatamean <- dcast(tidydata,subject + activity ~ variable, mean)
-write.table(tidydatamean, "tidydata.txt", row.name=FALSE)
+write.table(tidydatamean, "tidydatamean.txt", row.name=FALSE)
